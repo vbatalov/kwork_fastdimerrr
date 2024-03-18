@@ -107,5 +107,5 @@ $client->on(function (Update $update) use ($bot, $database) {
 try {
     $client->run();
 } catch (InvalidJsonException $e) {
-    print_r($e->getMessage());
+    exit($e->getMessage());
 }
