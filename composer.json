@@ -1,0 +1,6 @@
+{
+    "require": {
+        "telegram-bot/api": "^2.5",
+        "illuminate/database": "^11.0"
+    }
+}
