@@ -28,19 +28,21 @@ $client = new Client($BOT_TOKEN);
  */
 
 if (isset($_GET['register_bot'])) {
-    $url = register_bot($bot);
+    $url = $_GET['register_bot'];
+    register_bot($bot, $url);
+
+    print_r("<pre>");
+    print_r($bot->getWebhookInfo());
     exit ("Адрес зарегистрирован: $url");
 }
 
 /** Используется для регистрации URL адреса бота */
-function register_bot(BotApi $bot): string
+function register_bot(BotApi $bot, $url): string
 {
-    $actual_link = "https://$_SERVER[HTTP_HOST]";
-
     try {
         $bot->deleteWebhook(true);
-        $bot->setWebhook(url: $actual_link);
-        return $actual_link;
+        $bot->setWebhook(url: $url);
+        return $url;
     } catch (\TelegramBot\Api\Exception $e) {
         exit ($e->getMessage());
     }
