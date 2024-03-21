@@ -39,7 +39,6 @@ if (isset($_GET['register_bot'])) {
 /** Используется для регистрации URL адреса бота */
 function register_bot(BotApi $bot, $url): string
 {
-//        $url      = "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     try {
         $bot->deleteWebhook(true);
         $bot->setWebhook(url: $url);

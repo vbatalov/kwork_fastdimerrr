@@ -45,7 +45,7 @@ class Database
         });
     }
 
-    public function addUser(string $cid, string $first_name, string $last_name)
+    public function addUser(string $cid, string $first_name = null, string $last_name = null)
     {
 
         $this->db::table("users")->updateOrInsert(
